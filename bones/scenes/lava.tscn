@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://ghwfe0etsopm"]
+
+[ext_resource type="Texture2D" uid="uid://cqaim8it3lupg" path="res://assets/sprites/lava.png" id="1_a5s42"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5s42"]
+atlas = ExtResource("1_a5s42")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw3wf"]
+atlas = ExtResource("1_a5s42")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snnrc"]
+atlas = ExtResource("1_a5s42")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f10td"]
+atlas = ExtResource("1_a5s42")
+region = Rect2(0, 96, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sxvwp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5s42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw3wf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snnrc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f10td")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5s42"]
+size = Vector2(64, 32)
+
+[node name="Area2d" type="Area2D" unique_id=584772973]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2122662644]
+sprite_frames = SubResource("SpriteFrames_sxvwp")
+autoplay = "default"
+frame_progress = 0.4416265
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1211836481]
+shape = SubResource("RectangleShape2D_a5s42")
