@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bw6q8qxqygesx"]
+
+[ext_resource type="Script" uid="uid://bvdcamdq87knr" path="res://scripts/hud.gd" id="1_ahhtf"]
+[ext_resource type="Texture2D" uid="uid://dnodkyr10dejy" path="res://assets/sprites/heart_full.tres" id="2_uo2fv"]
+[ext_resource type="Texture2D" uid="uid://dhi1d0730x5wa" path="res://assets/sprites/heart_breaking.tres" id="3_047uy"]
+[ext_resource type="Texture2D" uid="uid://fp1y8alp6ij0" path="res://assets/sprites/heart_empty.tres" id="4_5pdws"]
+
+[node name="HUD" type="CanvasLayer" unique_id=95974745]
+follow_viewport_scale = 6.464
+script = ExtResource("1_ahhtf")
+full_heart_tex = ExtResource("2_uo2fv")
+broken_heart_tex = ExtResource("3_047uy")
+empty_heart_tex = ExtResource("4_5pdws")
+
+[node name="HeartsContainer" type="HBoxContainer" parent="." unique_id=170236699]
+anchors_preset = -1
+offset_right = 52.25
+offset_bottom = 18.5
+scale = Vector2(4, 4)
+theme_override_constants/separation = 4
+
+[node name="Heart1" type="TextureRect" parent="HeartsContainer" unique_id=708791937]
+texture_filter = 1
+custom_minimum_size = Vector2(7.5, 15)
+layout_mode = 2
+texture = ExtResource("2_uo2fv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart2" type="TextureRect" parent="HeartsContainer" unique_id=916678660]
+texture_filter = 1
+custom_minimum_size = Vector2(7.5, 15)
+layout_mode = 2
+texture = ExtResource("2_uo2fv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart3" type="TextureRect" parent="HeartsContainer" unique_id=1870476781]
+texture_filter = 1
+custom_minimum_size = Vector2(7.5, 15)
+layout_mode = 2
+texture = ExtResource("2_uo2fv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart4" type="TextureRect" parent="HeartsContainer" unique_id=1448252152]
+texture_filter = 1
+custom_minimum_size = Vector2(7.5, 15)
+layout_mode = 2
+texture = ExtResource("2_uo2fv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart5" type="TextureRect" parent="HeartsContainer" unique_id=1414097907]
+texture_filter = 1
+custom_minimum_size = Vector2(7.5, 15)
+layout_mode = 2
+texture = ExtResource("2_uo2fv")
+expand_mode = 1
+stretch_mode = 5

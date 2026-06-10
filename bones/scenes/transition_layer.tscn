@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://c0l32alfa6q20"]
+
+[ext_resource type="Script" uid="uid://f10ldjyu073i" path="res://scripts/transition_layer.gd" id="1_s44ji"]
+
+[sub_resource type="Animation" id="Animation_uhckl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0fjyy"]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_5fe4m"]
+resource_name = "fade_to_normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wvutt"]
+_data = {
+&"RESET": SubResource("Animation_uhckl"),
+&"fade_to_black": SubResource("Animation_0fjyy"),
+&"fade_to_normal": SubResource("Animation_5fe4m")
+}
+
+[node name="TransitionLayer" type="CanvasLayer" unique_id=973347050]
+script = ExtResource("1_s44ji")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1004090094]
+modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect" unique_id=2038741226]
+libraries/ = SubResource("AnimationLibrary_wvutt")

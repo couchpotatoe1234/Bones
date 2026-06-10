@@ -3,6 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://b18jqpvjqaq08" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://dm7mbypmgtka" path="res://assets/sprites/tiles.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://ghwfe0etsopm" path="res://scenes/lava.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://brxionbdj1mdo" path="res://scenes/bon.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bg5tdr0lpi5fs" path="res://scenes/killzone.tscn" id="5_iywne"]
+[ext_resource type="Script" uid="uid://c2vbtae8dckkl" path="res://scripts/checkpoint.gd" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://bw6q8qxqygesx" path="res://scenes/hud.tscn" id="7_u5sy4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p57ef"]
+size = Vector2(64, 31)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
 texture = ExtResource("2_yqjtg")
@@ -38,34 +45,30 @@ texture_region_size = Vector2i(32, 32)
 2:6/0 = 0
 3:0/0 = 0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -12.410252, -0.7194357, -13.849123, 16, -16, 16, -9.712372, 1.6187277, -5.935338, -16, -4.779461)
+3:1/0 = 0
+3:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_lnu2h"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yqjtg")
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_p57ef"]
+a = Vector2(0, -91)
+b = Vector2(0, 26)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_u5sy4"]
+a = Vector2(1, -78)
+b = Vector2(1, 29)
+
 [node name="Game" type="Node2D" unique_id=2082194260]
 
-[node name="Area2d" parent="." unique_id=584772973 instance=ExtResource("3_lnu2h")]
-position = Vector2(384, 16)
-
-[node name="Area2d2" parent="Area2d" unique_id=1511645562 instance=ExtResource("3_lnu2h")]
-position = Vector2(64, 0)
-
-[node name="Area2d" parent="Area2d" unique_id=1772400885 instance=ExtResource("3_lnu2h")]
-position = Vector2(-288, 0)
-
-[node name="Area2d2" parent="Area2d/Area2d" unique_id=342947880 instance=ExtResource("3_lnu2h")]
-position = Vector2(-64, 0)
-
-[node name="TileMap" type="TileMapLayer" parent="." unique_id=445609433]
-tile_map_data = PackedByteArray("AAD3//3/AAAAAAAAAAD6//7/AAAAAAAAAAD7//7/AAAAAAEAAAD8//7/AAAAAAEAAAD9//7/AAAAAAEAAAD+//7/AAACAAEAAAD+////AAAAAAIAAAD/////AAAAAAAAAAADAP//AAADAAAAAAAEAP//AAACAAEAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAIAAAAIAAAAAAAAAAIAAAAJAAAAAAAAAAIAAAAKAAAAAAAAAAIAAAAKAAEAAAABAAIAAAALAAEAAAABAAIAAAAMAAEAAAABAAIAAAAQAP//AAAAAAEAAAARAP//AAAAAAEAAAASAP//AAACAAEAAAASAAAAAAAAAAIAAAATAAAAAAACAAEAAAAPAAAAAAAAAAIAAAAQAAAAAAAAAAMAAAARAAAAAAAAAAMAAAATAAEAAAAAAAMAAAAOAAIAAAABAAIAAAANAAIAAAACAAIAAAAMAAIAAAABAAIAAAALAAIAAAABAAIAAAAKAAIAAAABAAIAAAAJAAEAAAABAAIAAAAIAAEAAAACAAIAAAAHAAEAAAACAAIAAAAGAAEAAAAAAAIAAAAFAAEAAAAAAAIAAAAEAAEAAAAAAAIAAAAEAAAAAAAAAAIAAAD+/wAAAAAAAAIAAAD9////AAAAAAIAAAD8////AAAAAAMAAAD7////AAAAAAMAAAD6////AAAAAAMAAAD5////AAAAAAIAAAD5//7/AAAAAAMAAAD4//7/AAAAAAIAAAD3//7/AAAAAAIAAAD4//3/AAAAAAEAAAD5//3/AAACAAEAAAD//wAAAAAAAAMAAAAAAP//AAAAAAAAAAABAP//AAABAAAAAAACAP//AAACAAAAAAAAAAAAAAAAAAIAAAAHAP//AAABAAEAAAAIAP//AAAAAAAAAAAJAP//AAAAAAAAAAAKAP//AAAAAAAAAAALAP//AAABAAAAAAAPAP//AAAAAAEAAAAOAP//AAADAAAAAAANAP//AAACAAAAAAAMAP//AAACAAAAAAANAAEAAAABAAIAAAAOAAEAAAABAAIAAAASAAEAAAAAAAMAAAD2//3/AAAAAAAAAAD1//3/AAAAAAIAAAD1//z/AAACAAEAAAD0//v/AAACAAEAAADz//r/AAACAAIAAAD0//z/AAAAAAIAAAD0//3/AAABAAIAAADz//v/AAACAAIAAADz//z/AAABAAIAAADz//3/AAABAAIAAADy//r/AAABAAIAAADy//v/AAABAAIAAADy//z/AAABAAIAAADy//3/AAABAAIAAADy//j/AAAAAAAAAADv//b/AAAAAAAAAADw//b/AAACAAEAAADx//f/AAAAAAAAAADy//f/AAACAAEAAADz//j/AAACAAEAAADy//n/AAAAAAIAAADz//n/AAAAAAIAAAD2//7/AAABAAIAAAD1//7/AAABAAIAAAD0//7/AAABAAIAAADz//7/AAACAAIAAADy//7/AAABAAIAAADv//f/AAAAAAIAAADw//f/AAAAAAIAAADw//j/AAABAAIAAADx//j/AAAAAAIAAADv//j/AAACAAIAAADv//n/AAABAAIAAADw//n/AAABAAIAAADx//n/AAABAAIAAADx//r/AAABAAIAAADw//r/AAACAAIAAADv//r/AAABAAIAAADv//v/AAABAAIAAADw//v/AAACAAIAAADx//v/AAABAAIAAADx//z/AAACAAIAAADw//z/AAACAAIAAADv//z/AAABAAIAAADv//3/AAABAAIAAADw//3/AAABAAIAAADw//7/AAABAAIAAADx//7/AAABAAIAAADx//3/AAABAAIAAADv//7/AAACAAIAAADv////AAACAAIAAADw////AAACAAIAAADx////AAABAAIAAADy////AAABAAIAAADz////AAACAAIAAAD0////AAACAAIAAAD1////AAABAAIAAAD2////AAACAAIAAAD3////AAABAAIAAAD4////AAABAAIAAAD9/wAAAAACAAIAAAD8/wAAAAACAAIAAAD7/wAAAAABAAIAAAD6/wAAAAABAAIAAAD5/wAAAAABAAIAAAD4/wAAAAACAAIAAAD3/wAAAAACAAIAAAD2/wAAAAACAAIAAAD1/wAAAAABAAIAAAD0/wAAAAACAAIAAADz/wAAAAABAAIAAADy/wAAAAABAAIAAADx/wAAAAABAAIAAADw/wAAAAACAAIAAADv/wAAAAABAAIAAAA=")
-tile_set = SubResource("TileSet_lnu2h")
-
-[node name="player" parent="." unique_id=1184304530 instance=ExtResource("1_uwrxv")]
-position = Vector2(-249, -105)
+[node name="player" parent="." unique_id=1184304530 groups=["player"] instance=ExtResource("1_uwrxv")]
+position = Vector2(-250, -96)
 rotation = 3.1415925
 scale = Vector2(1, -1)
+collision_layer = 1
+collision_mask = 1
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=852417754]
 position = Vector2(-3.0517578e-05, -6.866455e-05)
@@ -74,3 +77,70 @@ scale = Vector2(1, -1)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
+
+[node name="killzone" parent="." unique_id=1719185118 instance=ExtResource("5_iywne")]
+position = Vector2(249, 130)
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=979716679]
+position = Vector2(-57, -145.5)
+shape = SubResource("RectangleShape2D_p57ef")
+
+[node name="Lava" type="Node" parent="." unique_id=1462537951]
+
+[node name="Lava2" parent="Lava" unique_id=866799589 instance=ExtResource("3_lnu2h")]
+position = Vector2(192, -16)
+
+[node name="Lava3" parent="Lava" unique_id=584772973 instance=ExtResource("3_lnu2h")]
+position = Vector2(384, 16)
+
+[node name="Area2d2" parent="Lava/Lava3" unique_id=1511645562 instance=ExtResource("3_lnu2h")]
+position = Vector2(64, 0)
+
+[node name="Lava" parent="Lava" unique_id=1772400885 instance=ExtResource("3_lnu2h")]
+position = Vector2(96, 16)
+
+[node name="Area2d2" parent="Lava/Lava" unique_id=342947880 instance=ExtResource("3_lnu2h")]
+position = Vector2(-64, 0)
+
+[node name="Coins" type="Node" parent="." unique_id=967937858]
+
+[node name="bon4" parent="Coins" unique_id=156730288 instance=ExtResource("4_lbhrr")]
+position = Vector2(284, -49)
+collision_mask = 1
+
+[node name="bon" parent="Coins" unique_id=1729531191 instance=ExtResource("4_lbhrr")]
+position = Vector2(-142, -82)
+collision_mask = 1
+
+[node name="bon2" parent="Coins" unique_id=1797873446 instance=ExtResource("4_lbhrr")]
+position = Vector2(-54, -78)
+collision_mask = 1
+
+[node name="bon3" parent="Coins" unique_id=428426137 instance=ExtResource("4_lbhrr")]
+position = Vector2(79, -52)
+collision_mask = 1
+
+[node name="bon5" parent="Coins" unique_id=2038666710 instance=ExtResource("4_lbhrr")]
+position = Vector2(419, -48)
+collision_mask = 1
+
+[node name="TileMap" type="TileMapLayer" parent="." unique_id=445609433]
+z_index = 4
+tile_map_data = PackedByteArray("AAD3//3/AAAAAAAAAAD6//7/AAAAAAAAAAD7//7/AAAAAAEAAAD8//7/AAAAAAEAAAD9//7/AAAAAAEAAAD+//7/AAACAAEAAAD+////AAAAAAIAAAD/////AAAAAAAAAAADAP//AAADAAAAAAAEAP//AAAAAAEAAAAFAAAAAAAAAAIAAAAGAAAAAAAAAAIAAAAHAAAAAAAAAAIAAAAIAAAAAAAAAAIAAAAJAAAAAAAAAAIAAAAKAAAAAAAAAAIAAAAKAAEAAAABAAIAAAALAAEAAAABAAIAAAAMAAEAAAABAAIAAAAQAP//AAAAAAEAAAARAP//AAAAAAEAAAASAP//AAACAAEAAAASAAAAAAAAAAIAAAATAAAAAAACAAEAAAAPAAAAAAAAAAIAAAAQAAAAAAAAAAMAAAARAAAAAAAAAAMAAAATAAEAAAAAAAMAAAAOAAIAAAABAAIAAAANAAIAAAACAAIAAAAMAAIAAAABAAIAAAALAAIAAAABAAIAAAAKAAIAAAABAAIAAAAJAAEAAAABAAIAAAAIAAEAAAACAAIAAAAHAAEAAAACAAIAAAAGAAEAAAACAAIAAAAFAAEAAAABAAIAAAAEAAEAAAABAAIAAAAEAAAAAAAAAAIAAAD+/wAAAAAAAAIAAAD9////AAAAAAIAAAD8////AAAAAAMAAAD7////AAAAAAMAAAD6////AAAAAAMAAAD5////AAAAAAIAAAD5//7/AAAAAAMAAAD4//7/AAAAAAIAAAD3//7/AAAAAAIAAAD4//3/AAAAAAEAAAD5//3/AAACAAEAAAD//wAAAAAAAAMAAAAAAP//AAAAAAAAAAABAP//AAABAAAAAAACAP//AAACAAAAAAAAAAAAAAAAAAIAAAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAJAP//AAAAAAAAAAAKAP//AAAAAAAAAAALAP//AAABAAAAAAAPAP//AAAAAAEAAAAOAP//AAADAAAAAAANAP//AAACAAAAAAAMAP//AAACAAAAAAANAAEAAAABAAIAAAAOAAEAAAABAAIAAAASAAEAAAAAAAMAAAD2//3/AAAAAAAAAAD1//3/AAAAAAIAAAD1//z/AAACAAEAAAD0//v/AAACAAEAAADz//r/AAACAAIAAAD0//z/AAAAAAIAAAD0//3/AAABAAIAAADz//v/AAACAAIAAADz//z/AAABAAIAAADz//3/AAABAAIAAADy//r/AAABAAIAAADy//v/AAABAAIAAADy//z/AAABAAIAAADy//3/AAABAAIAAAD2//7/AAABAAIAAAD1//7/AAABAAIAAAD0//7/AAABAAIAAADz//7/AAACAAIAAADy//7/AAABAAIAAADx//r/AAABAAIAAADw//r/AAAAAAMAAADv//r/AAABAAIAAADv//v/AAABAAIAAADw//v/AAACAAIAAADx//v/AAABAAIAAADx//z/AAACAAIAAADw//z/AAACAAIAAADv//z/AAABAAIAAADv//3/AAABAAIAAADw//3/AAABAAIAAADw//7/AAABAAIAAADx//7/AAABAAIAAADx//3/AAABAAIAAADv//7/AAACAAIAAADv////AAACAAIAAADw////AAACAAIAAADx////AAABAAIAAADy////AAABAAIAAADz////AAACAAIAAAD0////AAACAAIAAAD1////AAABAAIAAAD2////AAACAAIAAAD3////AAABAAIAAAD4////AAABAAIAAAD9/wAAAAACAAIAAAD8/wAAAAACAAIAAAD7/wAAAAABAAIAAAD6/wAAAAABAAIAAAD5/wAAAAABAAIAAAD4/wAAAAACAAIAAAD3/wAAAAACAAIAAAD2/wAAAAACAAIAAAD1/wAAAAABAAIAAAD0/wAAAAACAAIAAADz/wAAAAABAAIAAADy/wAAAAABAAIAAADx/wAAAAABAAIAAADw/wAAAAACAAIAAADv/wAAAAABAAIAAAD5//z/AAADAAEAAAD2//z/AAADAAIAAAD8//3/AAADAAIAABAAAP7/AAADAAEAABAEAP7/AAADAAEAAAAPAP7/AAADAAEAAAAKAP7/AAADAAEAABDv//b/AAAAAAIAAADv//f/AAACAAIAAADv//j/AAABAAIAAADw//b/AAAAAAIAAADw//f/AAABAAIAAADw//j/AAABAAIAAADx//f/AAAAAAIAAADx//j/AAABAAIAAADy//j/AAAAAAIAAADz//f/AAAAAAEAAADz//j/AAAAAAIAAAD0//j/AAACAAEAAFDv//X/AAAAAAAAAADw//X/AAACAAEAAADx//b/AAACAAEAAADy//f/AAAAAAAAAADz//b/AAADAAEAAAD0//f/AAAAAAEAAADv//n/AAABAAIAAADw//n/AAABAAIAAADx//n/AAABAAIAAADy//n/AAAAAAMAAADz//n/AAAAAAIAAAA=")
+tile_set = SubResource("TileSet_lnu2h")
+
+[node name="Checkpoint" type="Area2D" parent="." unique_id=1820079215]
+script = ExtResource("6_p57ef")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint" unique_id=1849955946]
+position = Vector2(144, -57)
+shape = SubResource("SegmentShape2D_p57ef")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Checkpoint" unique_id=1866441936]
+position = Vector2(240, -62)
+shape = SubResource("SegmentShape2D_u5sy4")
+
+[node name="HUD" parent="." unique_id=95974745 instance=ExtResource("7_u5sy4")]
+
+[connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_body_entered"]
