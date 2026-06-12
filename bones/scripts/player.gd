@@ -70,6 +70,7 @@ func die() -> void:
 	screen_shake(8.0)
 	
 	if current_lives <= 0:
+		GameManager.total_coins = 0
 		get_tree().reload_current_scene()
 	else:
 		controls_allowed = false
@@ -77,3 +78,9 @@ func die() -> void:
 		velocity = Vector2.ZERO
 		get_tree().create_timer(0.4).timeout.connect(func(): controls_allowed = true)
 		
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		print("paused")
+		var pause_menu = get_node("/root/Game/HUD/PauseMenu")
+		if pause_menu:
+			pause_menu.toggle_pause()
