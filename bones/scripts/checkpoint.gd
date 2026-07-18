@@ -2,7 +2,18 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "player":
-		var ground_y = self.global_position.y
-		var safe_y = ground_y - 20.0 
-		body.respawn_position = Vector2(body.global_position.x, safe_y)
-		print("Checkpoint set safely above ground! X: ", body.global_position.x, " Y: ", safe_y)
+		var ray = RayCast2D.new()
+		add_child(ray)
+		ray.global_position = body.global_position
+		ray.target_position = Vector2(0, 500.0)
+		ray.force_raycast_update()
+		if ray.is_colliding():
+			var floor_collision_point = ray.get_collision_point()
+			var safe_spawn_y = floor_collision_point.y - 10.0
+			body.respawn_position = Vector2(body.global_position.x, safe_spawn_y)
+			print("Floor found! Respawn set cleanly on ground: ", body.respawn_position)
+		else:
+			body.respawn_position = body.global_position
+			print("Warning: Floor not found, using player's current position.")
+			
+		ray.queue_free()

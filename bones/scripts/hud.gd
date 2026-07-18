@@ -7,11 +7,11 @@ extends CanvasLayer
 @onready var hearts_container = $HeartsContainer
 
 func _ready() -> void:
-	var player = get_tree().get_first_node_in_group("player")
-	if player:
-		player.lives_changed.connect(on_lives_changed)
+	GameManager.player_lives_changed.connect(_on_lives_changed)
+	if has_node("CoinCounter"):
+		get_node("CoinCounter").text = str(GameManager.total_coins)
 
-func on_lives_changed(new_lives: int) -> void:
+func _on_lives_changed(new_lives: int) -> void:
 	var hearts = hearts_container.get_children()
 
 	if new_lives >= 0 and new_lives < hearts.size():

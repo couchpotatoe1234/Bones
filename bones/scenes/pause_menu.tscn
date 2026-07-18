@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://bv0af6sp0xba0"]
 
 [ext_resource type="Script" uid="uid://dslnollsljabi" path="res://scripts/pause_menu.gd" id="1_n87rw"]
+[ext_resource type="Texture2D" uid="uid://bo4yuturp1f5b" path="res://assets/sprites/Resume.png" id="2_7l7mv"]
+[ext_resource type="Texture2D" uid="uid://c753s6actla6p" path="res://assets/sprites/Quit.png" id="2_kukqi"]
+[ext_resource type="Texture2D" uid="uid://c6eflmal4anqy" path="res://assets/sprites/QuitPressed.png" id="3_5d2l8"]
+[ext_resource type="Texture2D" uid="uid://b0p7x6pgi0hit" path="res://assets/sprites/ResumePressed.png" id="3_v4r4p"]
 
 [node name="PauseMenu" type="Control" unique_id=300499922]
 process_mode = 3
@@ -35,14 +39,16 @@ offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ResumeButton" type="Button" parent="ColorRect/VBoxContainer" unique_id=1470740644]
+[node name="ResumeButton" type="TextureButton" parent="ColorRect/VBoxContainer" unique_id=761653204]
 layout_mode = 2
 focus_mode = 0
-text = "Resume"
+texture_normal = ExtResource("2_7l7mv")
+texture_hover = ExtResource("3_v4r4p")
 
-[node name="QuitButton" type="Button" parent="ColorRect/VBoxContainer" unique_id=1675929079]
+[node name="QuitButton" type="TextureButton" parent="ColorRect/VBoxContainer" unique_id=1799750447]
 layout_mode = 2
-text = "Quit"
+texture_normal = ExtResource("2_kukqi")
+texture_hover = ExtResource("3_5d2l8")
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

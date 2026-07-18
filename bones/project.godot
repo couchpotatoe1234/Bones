@@ -24,6 +24,10 @@ GameManager="*uid://b7k33df8nwnb4"
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res://addons/net.yarvis.pixel_pen/plugin.cfg")
 
+[global_group]
+
+player=""
+
 [input]
 
 attack={
