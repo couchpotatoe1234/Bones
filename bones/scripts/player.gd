@@ -64,7 +64,7 @@ func die() -> void:
 	screen_shake(8.0)
 	
 	if current_lives <= 0:
-		var current_scene = get_tree().current_scene
+		GameManager.deaths += 1 
 		GameManager.total_coins = 0
 		hide()
 		TransitionLayer.change_scene("res://scenes/main_menu.tscn")
@@ -74,13 +74,13 @@ func die() -> void:
 		hide()
 		await TransitionLayer.fade_in()
 		global_position = respawn_position
+		$AnimatedSprite2D.play("idle")
 		show()
 		await TransitionLayer.fade_out()
 		controls_allowed = true
 		
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
-		print("paused")
 		if PauseMenu:
 			PauseMenu.toggle_pause()
 

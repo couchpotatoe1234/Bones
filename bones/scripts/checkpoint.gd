@@ -11,9 +11,7 @@ func _on_body_entered(body: Node2D) -> void:
 			var floor_collision_point = ray.get_collision_point()
 			var safe_spawn_y = floor_collision_point.y - 10.0
 			body.respawn_position = Vector2(body.global_position.x, safe_spawn_y)
-			print("Floor found! Respawn set cleanly on ground: ", body.respawn_position)
 		else:
 			body.respawn_position = body.global_position
-			print("Warning: Floor not found, using player's current position.")
 			
 		ray.queue_free()
