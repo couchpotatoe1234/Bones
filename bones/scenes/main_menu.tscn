@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://biw5g5ykf6nxj" path="res://assets/sprites/Title.png" id="2_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://dbikeq7ehlpec" path="res://assets/sprites/StartButton.png" id="3_wu84c"]
 [ext_resource type="Texture2D" uid="uid://dwaunt2m2xte1" path="res://assets/sprites/StartButtonPressed.png" id="4_8ln24"]
-[ext_resource type="Texture2D" uid="uid://b0nou7qghv05k" path="res://assets/sprites/HowToPlay.png" id="5_8ln24"]
-[ext_resource type="Texture2D" uid="uid://bnk7liqgfwu5u" path="res://assets/sprites/HowToPlayPressed.png" id="6_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://c753s6actla6p" path="res://assets/sprites/Quit.png" id="7_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://c6eflmal4anqy" path="res://assets/sprites/QuitPressed.png" id="8_jk1qb"]
 
@@ -18,7 +16,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_l6cm7")
-first_level = "uid://cf6nf5x306m6r"
 
 [node name="Title" type="Sprite2D" parent="." unique_id=98325909]
 position = Vector2(576, 324)
@@ -46,13 +43,6 @@ action_mode = 0
 texture_normal = ExtResource("3_wu84c")
 texture_hover = ExtResource("4_8ln24")
 
-[node name="HTPButton" type="TextureButton" parent="VBoxContainer" unique_id=228067841]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-action_mode = 0
-texture_normal = ExtResource("5_8ln24")
-texture_hover = ExtResource("6_rtw2f")
-
 [node name="QuitButton" type="TextureButton" parent="VBoxContainer" unique_id=321519858]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
@@ -62,5 +52,4 @@ texture_normal = ExtResource("7_tbmy8")
 texture_hover = ExtResource("8_jk1qb")
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HTPButton" to="." method="_on_HTP_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

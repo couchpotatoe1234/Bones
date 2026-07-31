@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
-signal lives_changed(new_lives_count: int)
 const SPEED = 150.0
-const JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -350.0
 @export var max_lives : int = 5
 var current_lives : int
 var shake_intensity : float = 0.0
@@ -16,14 +15,6 @@ var is_turning : bool = false
 func _ready() -> void:
 	respawn_position = global_position
 	current_lives = max_lives
-	var current_scene = get_tree().current_scene
-	if current_scene and current_scene.name == "How To Play":
-		if GameManager.total_coins > 0:
-			GameManager.real_game_coins = GameManager.total_coins
-		GameManager.total_coins = 0
-	else:
-		if GameManager.real_game_coins > 0:
-			GameManager.total_coins = GameManager.real_game_coins
 	await get_tree().process_frame
 	GameManager.player_lives_changed.emit(current_lives)
 
@@ -74,17 +65,9 @@ func die() -> void:
 	
 	if current_lives <= 0:
 		var current_scene = get_tree().current_scene
-		if current_scene and current_scene.name == "How To Play":
-			GameManager.total_coins = 0
-			hide()
-			await TransitionLayer.fade_in()
-			get_tree().reload_current_scene()
-			show()
-			await TransitionLayer.fade_out()
-		else:
-			GameManager.total_coins = 0
-			hide()
-			TransitionLayer.change_scene("res://scenes/main_menu.tscn")
+		GameManager.total_coins = 0
+		hide()
+		TransitionLayer.change_scene("res://scenes/main_menu.tscn")
 	else:
 		controls_allowed = false
 		velocity = Vector2.ZERO
@@ -100,3 +83,20 @@ func _unhandled_input(event: InputEvent) -> void:
 		print("paused")
 		if PauseMenu:
 			PauseMenu.toggle_pause()
+
+
+func _on_cutscene_body_entered(body: Node2D) -> void:
+	if body.name == "player":
+		controls_allowed = false
+		$AnimatedSprite2D.play("idle")
+		await TransitionLayer.fade_in()
+		camera.reset_smoothing()
+		camera.force_update_scroll()
+		camera.position_smoothing_enabled = false
+		get_parent().get_node("Cutscene/AnimationPlayer").play("intro_sequence")
+		await TransitionLayer.fade_out()
+		await get_parent().get_node("Cutscene/AnimationPlayer").animation_finished
+		TransitionLayer.change_scene("res://scenes/Cutscene1.tscn")
+		
+		
+		

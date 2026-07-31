@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://cfurg68u15ob3"]
+
+[ext_resource type="Texture2D" uid="uid://vcqsbunq326p" path="res://assets/sprites/Deep_Cave.png" id="1_vpobs"]
+[ext_resource type="Texture2D" uid="uid://dcxglwldcjgc6" path="res://assets/sprites/Font_Cave.png" id="2_hsk85"]
+[ext_resource type="PackedScene" uid="uid://b18jqpvjqaq08" path="res://scenes/player.tscn" id="3_hsk85"]
+[ext_resource type="PackedScene" uid="uid://bw6q8qxqygesx" path="res://scenes/hud.tscn" id="4_pvtga"]
+[ext_resource type="Texture2D" uid="uid://dm7mbypmgtka" path="res://assets/sprites/tiles.png" id="4_ydowr"]
+[ext_resource type="PackedScene" uid="uid://bv0af6sp0xba0" path="res://scenes/pause_menu.tscn" id="5_ydowr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qp144"]
+texture = ExtResource("4_ydowr")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.7777786, -14.222222, 16, -12.444445, 16, -5.333333, -1.7777777, -7.1111107, -16, -10.666666, -16, -16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1.7777777, -12.444445, 16, -12.444445, 16, -3.5555553, -1.7777777, -3.5555553, -16, -3.5555553, -16, -12.444445)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -14.222222, 16, -16, 16, -10.666666, 1.7777786, -5.333333, -16, -5.333333, -16, -12.444445)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.666666, -8.888889, -1.7777777, -16, 16, -16, 16, 16, -16, 16, -16, 3.5555553)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.5555553, -16, 8.888889, -10.666666, 16, 1.7777786, 16, 16, -16, 16, -16, -16)
+3:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:2/0 = 0
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_u3jk7"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_qp144")
+
+[node name="Node2D" type="Node2D" unique_id=1627191595]
+
+[node name="Parallax_Deep" type="Parallax2D" parent="." unique_id=1624628803]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(1152, 648)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax_Deep" unique_id=108856662]
+texture = ExtResource("1_vpobs")
+
+[node name="Parallax_front" type="Parallax2D" parent="." unique_id=626381940]
+scroll_scale = Vector2(0.75, 0.75)
+repeat_size = Vector2(1152, 648)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax_front" unique_id=193173368]
+texture = ExtResource("2_hsk85")
+
+[node name="player" parent="." unique_id=1184304530 instance=ExtResource("3_hsk85")]
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=1638123760]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=888938721]
+tile_map_data = PackedByteArray(0, 0, 254, 255, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 255, 255, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0)
+tile_set = SubResource("TileSet_u3jk7")
+
+[node name="killzone" type="Area2D" parent="." unique_id=1933817721]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=698705591]
+
+[node name="checkpoints" type="Area2D" parent="." unique_id=102216460]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="checkpoints" unique_id=235806581]
+
+[node name="Lava" type="Node" parent="." unique_id=85955584]
+
+[node name="Spikes" type="Node" parent="." unique_id=30822611]
+
+[node name="Coins" type="Node" parent="." unique_id=1306964608]
+
+[node name="HUD" parent="." unique_id=1000562769 instance=ExtResource("4_pvtga")]
+
+[node name="PauseMenu" parent="HUD" unique_id=300499922 instance=ExtResource("5_ydowr")]
