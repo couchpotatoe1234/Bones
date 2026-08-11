@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://c2vbtae8dckkl" path="res://scripts/checkpoint.gd" id="7_m8x0n"]
 [ext_resource type="PackedScene" uid="uid://bhxnjeqqft3jn" path="res://scenes/gateway_1.tscn" id="9_xqkvd"]
 [ext_resource type="Script" uid="uid://dywpmthtgxcwq" path="res://scripts/basic_movement.gd" id="10_dhu30"]
-[ext_resource type="FontFile" uid="uid://dhpmivxagfwlj" path="res://assets/fonts/CartoonBones-Regular.ttf" id="11_nxcge"]
 [ext_resource type="Script" uid="uid://ba3h3n8c2raxm" path="res://scripts/jumping.gd" id="12_esfgi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wi5qh"]
@@ -67,8 +66,7 @@ a = Vector2(0, 52)
 b = Vector2(0, -9)
 
 [sub_resource type="LabelSettings" id="LabelSettings_esfgi"]
-font = ExtResource("11_nxcge")
-font_size = 25
+font_size = 20
 font_color = Color(0.040525824, 0.029222844, 0.011147018, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nxcge"]
@@ -190,8 +188,8 @@ script = ExtResource("10_dhu30")
 visible = false
 offset_left = -256.0
 offset_top = -72.0
-offset_right = 93.0
-offset_bottom = -44.0
+offset_right = 87.0
+offset_bottom = -37.0
 text = "Use ⬅➡ to move left & right"
 label_settings = SubResource("LabelSettings_esfgi")
 

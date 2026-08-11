@@ -10,7 +10,6 @@ func toggle_pause() -> void:
 func _on_resume_button_pressed() -> void:
 	toggle_pause() 
 	
-	
 func _on_quit_button_pressed() -> void:
 	get_tree().paused = false
 	TransitionLayer.change_scene("res://scenes/main_menu.tscn")

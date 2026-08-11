@@ -99,10 +99,12 @@ animations = [{
 radius = 5.0
 
 [node name="bon" type="Area2D" unique_id=1729531191]
+z_index = 10
 collision_mask = 2
 script = ExtResource("1_28e1w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=816958294]
+z_index = 1
 sprite_frames = SubResource("SpriteFrames_308th")
 autoplay = "default"
 frame_progress = 0.6411429

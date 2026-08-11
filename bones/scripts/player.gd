@@ -6,11 +6,11 @@ const JUMP_VELOCITY = -350.0
 var current_lives : int
 var shake_intensity : float = 0.0
 var shake_fade : float = 5.0
-var controls_allowed : bool = true
 var is_turning : bool = false
 @onready var PauseMenu = $"../HUD/PauseMenu"
 @onready var camera = $Camera2D
 @export var respawn_position : Vector2
+var can_double_jump: bool = true
 
 func _ready() -> void:
 	respawn_position = global_position
@@ -21,9 +21,14 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	if controls_allowed:
+	if GameManager.controls_allowed:
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
+		if is_on_floor():
+			can_double_jump = true
+		if Input.is_action_just_pressed("jump") and not is_on_floor() and GameManager.has_double_jump == true and can_double_jump == true:
+			velocity.y = -400.0
+			can_double_jump = false
 		var direction := Input.get_axis("move_left", "move_right")
 		if direction:
 			velocity.x = direction * SPEED
@@ -56,7 +61,7 @@ func screen_shake(intensity: float, fade_speed: float = 15.0) -> void:
 	shake_fade = fade_speed
 
 func die() -> void:
-	if not controls_allowed:
+	if not GameManager.controls_allowed:
 		return
 		
 	current_lives -= 1
@@ -69,7 +74,7 @@ func die() -> void:
 		hide()
 		TransitionLayer.change_scene("res://scenes/main_menu.tscn")
 	else:
-		controls_allowed = false
+		GameManager.controls_allowed = false
 		velocity = Vector2.ZERO
 		hide()
 		await TransitionLayer.fade_in()
@@ -77,7 +82,7 @@ func die() -> void:
 		$AnimatedSprite2D.play("idle")
 		show()
 		await TransitionLayer.fade_out()
-		controls_allowed = true
+		GameManager.controls_allowed = true
 		
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
@@ -87,7 +92,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_cutscene_body_entered(body: Node2D) -> void:
 	if body.name == "player":
-		controls_allowed = false
+		GameManager.controls_allowed = false
 		$AnimatedSprite2D.play("idle")
 		await TransitionLayer.fade_in()
 		camera.reset_smoothing()

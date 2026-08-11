@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://cmsbwx5ip65wn" path="res://assets/sprites/Still.png" id="1_7wnd6"]
 [ext_resource type="Script" uid="uid://cr188oo02kn3v" path="res://scripts/cutscene_1.gd" id="1_oanqf"]
-[ext_resource type="FontFile" uid="uid://dhpmivxagfwlj" path="res://assets/fonts/CartoonBones-Regular.ttf" id="2_rj1e2"]
 
 [sub_resource type="Animation" id="Animation_7wnd6"]
 length = 0.001
@@ -90,12 +89,10 @@ _data = {
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_oanqf"]
-font = ExtResource("2_rj1e2")
-font_size = 25
+font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_rj1e2"]
-font = ExtResource("2_rj1e2")
-font_size = 26
+font_size = 22
 
 [node name="Node2D" type="Node2D" unique_id=2006095820]
 script = ExtResource("1_oanqf")
