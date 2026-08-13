@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://bo8oubeyr376"]
+
+[ext_resource type="Texture2D" uid="uid://dypvakytfy8p" path="res://assets/sprites/Double Jump.png" id="1_8nk8w"]
+[ext_resource type="Script" uid="uid://c43fe4x3xlx4o" path="res://scripts/jump2.gd" id="2_jdapp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wv8ff"]
+atlas = ExtResource("1_8nk8w")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqvfj"]
+atlas = ExtResource("1_8nk8w")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y8sh"]
+atlas = ExtResource("1_8nk8w")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkan3"]
+atlas = ExtResource("1_8nk8w")
+region = Rect2(192, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3roxq"]
+atlas = ExtResource("1_8nk8w")
+region = Rect2(256, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffoiu"]
+atlas = ExtResource("1_8nk8w")
+region = Rect2(320, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe11t"]
+atlas = ExtResource("1_8nk8w")
+region = Rect2(448, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k17d"]
+atlas = ExtResource("1_8nk8w")
+region = Rect2(576, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_20ad0"]
+animations = [{
+"frames": [{
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_wv8ff")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_cqvfj")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_7y8sh")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_fkan3")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_3roxq")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_ffoiu")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_oe11t")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_2k17d")
+}],
+"loop": false,
+"name": &"default",
+"speed": 17.0
+}]
+
+[node name="Node2D" type="AnimatedSprite2D" unique_id=748240684]
+sprite_frames = SubResource("SpriteFrames_20ad0")
+frame = 7
+frame_progress = 1.0
+script = ExtResource("2_jdapp")

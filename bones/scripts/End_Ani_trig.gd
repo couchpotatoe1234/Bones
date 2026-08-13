@@ -13,10 +13,13 @@ func _on_body_exited(body: Node2D) -> void:
 	saved_body = null
 
 func _process(delta: float) -> void:
-	if body_in && Input.is_action_just_pressed("interact") && saved_body.name == "player":
-		GameManager.has_double_jump = true
+	if body_in && Input.is_action_just_pressed("interact"):
 		GameManager.controls_allowed = false
-		$AnimationPlayer.play("Main")
-		await $AnimationPlayer.animation_finished
+		$"../player/AnimatedSprite2D".play("idle")
+		TransitionLayer.fade_in()
+		await TransitionLayer.fade_in()
+		$"../EvilGuyAni1".stop()
+		$"../Ending animation".play("main")
+		TransitionLayer.fade_out()
+		await $"../Ending animation".animation_finished
 		GameManager.controls_allowed = true
-		queue_free()

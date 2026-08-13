@@ -316,7 +316,7 @@ position = Vector2(411, 384)
 texture = ExtResource("12_xo1hp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exit" unique_id=1193841944]
-position = Vector2(411, 392.5)
+position = Vector2(411, 391)
 shape = SubResource("RectangleShape2D_ftiud")
 
 [connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]

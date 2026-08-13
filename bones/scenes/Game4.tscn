@@ -307,7 +307,7 @@ position = Vector2(-344, 0)
 texture = ExtResource("11_wrv8r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gateway" unique_id=1402522950]
-position = Vector2(-344, 6)
+position = Vector2(-344, 5)
 shape = SubResource("RectangleShape2D_mha7b")
 
 [node name="Gate" type="Sprite2D" parent="." unique_id=498706793]

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 150.0
-const JUMP_VELOCITY = -350.0
+const JUMP_VELOCITY = -375.0
 @export var max_lives : int = 5
 var current_lives : int
 var shake_intensity : float = 0.0
@@ -10,6 +10,7 @@ var is_turning : bool = false
 @onready var PauseMenu = $"../HUD/PauseMenu"
 @onready var camera = $Camera2D
 @export var respawn_position : Vector2
+@export var double_jump_scene: PackedScene
 var can_double_jump: bool = true
 
 func _ready() -> void:
@@ -26,9 +27,13 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY
 		if is_on_floor():
 			can_double_jump = true
-		if Input.is_action_just_pressed("jump") and not is_on_floor() and GameManager.has_double_jump == true and can_double_jump == true:
-			velocity.y = -400.0
+		if Input.is_action_just_pressed("jump") and not is_on_floor() and GameManager.has_double_jump and can_double_jump:
+			velocity.y = JUMP_VELOCITY
 			can_double_jump = false
+			if double_jump_scene:
+				var fx = double_jump_scene.instantiate()
+				add_child(fx)
+				fx.position = Vector2(0, 40)
 		var direction := Input.get_axis("move_left", "move_right")
 		if direction:
 			velocity.x = direction * SPEED
@@ -65,12 +70,12 @@ func die() -> void:
 		return
 		
 	current_lives -= 1
+	GameManager.lives_lost += 1
 	GameManager.player_lives_changed.emit(current_lives)
 	screen_shake(8.0)
 	
 	if current_lives <= 0:
 		GameManager.deaths += 1 
-		GameManager.total_coins = 0
 		hide()
 		TransitionLayer.change_scene("res://scenes/main_menu.tscn")
 	else:
@@ -102,6 +107,7 @@ func _on_cutscene_body_entered(body: Node2D) -> void:
 		await TransitionLayer.fade_out()
 		await get_parent().get_node("Cutscene/AnimationPlayer").animation_finished
 		TransitionLayer.change_scene("res://scenes/Cutscene1.tscn")
+		GameManager.controls_allowed = true
 		
 		
 		
