@@ -19,3 +19,5 @@ I decided to make this game to improve on my python skills because Godot Script 
 <p align="center">
 	<img src="demo_images/GDscript_example.png" alt="Image didn't load, look at demo_images/GDscript_example.png">
 </p>
+ 
+To play this game, go to https://couchpotatoe1234.itch.io/bones
