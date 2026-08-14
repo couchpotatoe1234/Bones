@@ -16,4 +16,7 @@ func _process(delta: float) -> void:
 	if body_in && Input.is_action_just_pressed("interact"):
 		saved_body.hide()
 		GameManager.current_level = "res://scenes/game.tscn"
+		GameManager.controls_allowed = false
 		TransitionLayer.change_scene(GameManager.current_level)
+		await TransitionLayer.change_scene(GameManager.current_level)
+		GameManager.controls_allowed = true

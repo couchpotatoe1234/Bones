@@ -1,10 +1,27 @@
 [gd_scene format=3 uid="uid://d2htrbyw3ew6j"]
 
 [ext_resource type="AudioStream" uid="uid://dj7265ocg6tth" path="res://assets/music/Bones_Music.mp3" id="1_86cwe"]
+[ext_resource type="AudioStream" uid="uid://cdje4x7486bcp" path="res://assets/sounds/Coin.wav" id="2_nuwea"]
+[ext_resource type="AudioStream" uid="uid://bm6w1ir5n2yku" path="res://assets/sounds/Die.wav" id="3_0i0nx"]
+[ext_resource type="AudioStream" uid="uid://dk0axkmuk7mh4" path="res://assets/sounds/Button.wav" id="4_aba1o"]
+[ext_resource type="AudioStream" uid="uid://bq63mi4ojq1wl" path="res://assets/sounds/DoubleJump.wav" id="5_aba1o"]
 
 [node name="Music Controller" type="Node2D" unique_id=193343211]
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1056858138]
 stream = ExtResource("1_86cwe")
-volume_db = -2.5
+volume_db = -15.0
 parameters/looping = true
+
+[node name="Coin" type="AudioStreamPlayer" parent="." unique_id=1098738204]
+stream = ExtResource("2_nuwea")
+
+[node name="Die" type="AudioStreamPlayer" parent="." unique_id=1795139438]
+stream = ExtResource("3_0i0nx")
+
+[node name="Button" type="AudioStreamPlayer" parent="." unique_id=1801812856]
+stream = ExtResource("4_aba1o")
+
+[node name="DoubleJump" type="AudioStreamPlayer" parent="." unique_id=1193694416]
+stream = ExtResource("5_aba1o")
+volume_db = -20.0

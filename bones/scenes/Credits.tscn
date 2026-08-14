@@ -1,8 +1,153 @@
 [gd_scene format=3 uid="uid://b6376sry0gr88"]
 
+[ext_resource type="Script" uid="uid://coiu7cdq7rxal" path="res://scripts/credits.gd" id="1_gw1d4"]
 [ext_resource type="Texture2D" uid="uid://biw5g5ykf6nxj" path="res://assets/sprites/Title.png" id="1_hi4w3"]
+[ext_resource type="Script" uid="uid://dcm6jr0tmmohc" path="res://scripts/stats_label.gd" id="2_spvsy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gw1d4"]
+font_size = 20
+
+[sub_resource type="Animation" id="Animation_y8nor"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StatsLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Button:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Button:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(418, 756)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_al82v"]
+resource_name = "new_animation"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StatsLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 7, 8, 13, 14),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Button:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 14, 15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Button:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 14),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(418, 756), Vector2(329, 259)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tlwrt"]
+_data = {
+&"RESET": SubResource("Animation_y8nor"),
+&"new_animation": SubResource("Animation_al82v")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_spvsy"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_y8nor"]
+font_size = 40
 
 [node name="Node2D" type="Node2D" unique_id=69476807]
+script = ExtResource("1_gw1d4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1592639895]
 position = Vector2(576, 324)
@@ -15,3 +160,59 @@ offset_top = 122.0
 offset_right = 752.0
 offset_bottom = 278.0
 color = Color(0.23921569, 0.19215687, 0.1254902, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1200463527]
+modulate = Color(1, 1, 1, 0)
+offset_left = 420.0
+offset_top = 267.0
+offset_right = 731.0
+offset_bottom = 419.0
+text = "Code: Couchpotatoe1234
+Art: Couchpotatoe1234
+Music: Couchpotatoe1234
+Level design: Couchpotatoe1234
+Sounds: Couchpotatoe1234"
+label_settings = SubResource("LabelSettings_gw1d4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1176529471]
+libraries/ = SubResource("AnimationLibrary_tlwrt")
+autoplay = &"new_animation"
+
+[node name="StatsLabel" type="Label" parent="." unique_id=1738275158]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 553.0
+offset_top = 323.0
+offset_right = 624.88104
+offset_bottom = 368.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+label_settings = SubResource("LabelSettings_spvsy")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_spvsy")
+
+[node name="Button" type="Button" parent="." unique_id=235430405]
+modulate = Color(1, 1, 1, 0)
+offset_left = 418.0
+offset_top = 756.0
+offset_right = 908.0
+offset_bottom = 791.0
+mouse_default_cursor_shape = 2
+text = "Return to Main Menu"
+
+[node name="Label2" type="Label" parent="." unique_id=2084971530]
+modulate = Color(1, 1, 1, 0)
+offset_left = 496.0
+offset_top = 192.0
+offset_right = 650.0
+offset_bottom = 247.0
+text = "The End"
+label_settings = SubResource("LabelSettings_y8nor")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

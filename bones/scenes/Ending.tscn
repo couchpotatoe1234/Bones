@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://0ijddr8g56fg" path="res://assets/sprites/gateway1.png" id="12_nydwm"]
 [ext_resource type="Texture2D" uid="uid://dci0pb3jys2ax" path="res://assets/sprites/Bon.png" id="13_eqs5b"]
 [ext_resource type="Texture2D" uid="uid://cmsbwx5ip65wn" path="res://assets/sprites/Still.png" id="13_h5exp"]
+[ext_resource type="Script" uid="uid://ckgyn4p280o7t" path="res://scripts/hint.gd" id="16_50tyi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qp144"]
 texture = ExtResource("4_ydowr")
@@ -508,6 +509,17 @@ tracks/32/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/33/type = "method"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("Hint")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
 
 [sub_resource type="Animation" id="Animation_nydwm"]
 resource_name = "main"
@@ -934,6 +946,20 @@ tracks/34/keys = {
 "values": [{
 "args": [],
 "method": &"end_die"
+}]
+}
+tracks/35/type = "method"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("Hint")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_begone"
 }]
 }
 
@@ -1438,9 +1464,26 @@ frame = 4
 position = Vector2(432, -112)
 shape = SubResource("RectangleShape2D_eqs5b")
 
+[node name="Hint" type="Area2D" parent="." unique_id=838454309]
+script = ExtResource("16_50tyi")
+
+[node name="Label" type="Label" parent="Hint" unique_id=625138484]
+visible = false
+offset_left = 430.0
+offset_top = -213.0
+offset_right = 470.0
+offset_bottom = -190.0
+text = "⬆"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hint" unique_id=2143728878]
+position = Vector2(418.77798, -155.63806)
+shape = SubResource("RectangleShape2D_sohfv")
+
 [connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
 [connection signal="body_entered" from="checkpoints" to="checkpoints" method="_on_body_entered"]
 [connection signal="body_entered" from="EvilGuy" to="EvilGuy" method="_on_body_entered"]
 [connection signal="body_exited" from="EvilGuy" to="EvilGuy" method="_on_body_exited"]
+[connection signal="body_entered" from="Hint" to="Hint" method="_on_body_entered"]
+[connection signal="body_exited" from="Hint" to="Hint" method="_on_body_exited"]
 
 [editable path="player"]

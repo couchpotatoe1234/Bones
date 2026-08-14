@@ -166,5 +166,5 @@ offset_left = -150.0
 offset_top = -52.00003
 offset_right = 148.0
 offset_bottom = -25.00003
-text = "Collect 100 coins for me."
+text = "Collect coins for me."
 label_settings = SubResource("LabelSettings_rj1e2")

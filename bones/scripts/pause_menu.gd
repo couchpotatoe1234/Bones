@@ -8,8 +8,10 @@ func toggle_pause() -> void:
 	visible = get_tree().paused
 	
 func _on_resume_button_pressed() -> void:
+	MusicController.get_node("Button").play()
 	toggle_pause() 
 	
 func _on_quit_button_pressed() -> void:
+	MusicController.get_node("Button").play()
 	get_tree().paused = false
 	TransitionLayer.change_scene("res://scenes/main_menu.tscn")

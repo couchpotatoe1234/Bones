@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 			can_double_jump = true
 		if Input.is_action_just_pressed("jump") and not is_on_floor() and GameManager.has_double_jump and can_double_jump:
 			velocity.y = JUMP_VELOCITY
+			MusicController.get_node("DoubleJump").play()
 			can_double_jump = false
 			if double_jump_scene:
 				var fx = double_jump_scene.instantiate()
@@ -73,6 +74,7 @@ func die() -> void:
 	GameManager.lives_lost += 1
 	GameManager.player_lives_changed.emit(current_lives)
 	screen_shake(8.0)
+	MusicController.get_node("Die").play()
 	
 	if current_lives <= 0:
 		GameManager.deaths += 1 
@@ -96,6 +98,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 func end_die() -> void:
 	screen_shake(8.0)
+	MusicController.get_node("Die").play()
 	TransitionLayer.change_scene("res://scenes/Credits.tscn")
 
 
