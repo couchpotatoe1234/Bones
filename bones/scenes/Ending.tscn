@@ -511,7 +511,7 @@ tracks/32/keys = {
 
 [sub_resource type="Animation" id="Animation_nydwm"]
 resource_name = "main"
-length = 13.76
+length = 14.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -522,7 +522,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 13.25, 13.75),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(388, -129), Vector2(388, -129), Vector2(393, -5)]
+"values": [Vector2(388, -129), Vector2(388, -129), Vector2(385, 31)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -922,6 +922,20 @@ tracks/33/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/34/type = "method"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("player")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(13.75),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end_die"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h5exp"]
 _data = {
@@ -1033,6 +1047,7 @@ size = Vector2(32, 32)
 [node name="Node2D" type="Node2D" unique_id=1627191595]
 
 [node name="Parallax_Deep" type="Parallax2D" parent="." unique_id=1624628803]
+visible = false
 scroll_scale = Vector2(0.2, 0.2)
 repeat_size = Vector2(1152, 648)
 repeat_times = 3
@@ -1041,6 +1056,7 @@ repeat_times = 3
 texture = ExtResource("1_vpobs")
 
 [node name="Parallax_front" type="Parallax2D" parent="." unique_id=626381940]
+visible = false
 scroll_scale = Vector2(0.75, 0.75)
 repeat_size = Vector2(1152, 648)
 repeat_times = 3
@@ -1208,175 +1224,175 @@ position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.9439678
+frame_progress = 0.8072571
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=2115516541]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.3015333
+frame_progress = 0.16481993
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=953882855]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.7802939
+frame_progress = 0.6435794
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=492757025]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.85188925
+frame_progress = 0.7151837
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=791750389]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.46178588
+frame_progress = 0.3250758
 
 [node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=1475518946]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.13492517
+frame_progress = 0.99821746
 
 [node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=985158626]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.9656751
+frame_progress = 0.82896936
 
 [node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=1346308513]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.28682435
+frame_progress = 0.15011248
 
 [node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=20145747]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.12461929
+frame_progress = 0.987911
 
 [node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=1684500512]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.83203894
+frame_progress = 0.6953307
 
 [node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=1404727441]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.6074813
+frame_progress = 0.4707746
 
 [node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=466892663]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.30267605
+frame_progress = 0.16596255
 
 [node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=1709297759]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.5578523
+frame_progress = 0.42114317
 
 [node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=1883601727]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.5727089
+frame_progress = 0.43599862
 
 [node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=595470870]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.19244717
+frame_progress = 0.055739623
 
 [node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=719880820]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.024830922
+frame_progress = 0.8881253
 
 [node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=1816022600]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.13772719
+frame_progress = 0.0010196985
 
 [node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=1220250835]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.90216964
+frame_progress = 0.7654612
 
 [node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=962836625]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.30355164
+frame_progress = 0.16683844
 
 [node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=319192574]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.21497767
+frame_progress = 0.07826851
 
 [node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=1712494732]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.0977519
+frame_progress = 0.96104395
 
 [node name="AnimatedSprite2D22" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=961389091]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.18594508
+frame_progress = 0.04923616
 
 [node name="AnimatedSprite2D23" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=267961371]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.30387434
+frame_progress = 0.16716072
 
 [node name="AnimatedSprite2D24" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=1576087586]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.1426063
+frame_progress = 0.0058992924
 
 [node name="AnimatedSprite2D25" type="AnimatedSprite2D" parent="Ending animation/coins" unique_id=596368710]
 position = Vector2(393, -161)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ywsjg")
 autoplay = "default"
-frame_progress = 0.8450725
+frame_progress = 0.70836735
 
 [node name="EvilGuy" type="Area2D" parent="." unique_id=1043085816]
 position = Vector2(436, -156)

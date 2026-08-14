@@ -93,6 +93,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		if PauseMenu:
 			PauseMenu.toggle_pause()
+			
+func end_die() -> void:
+	screen_shake(8.0)
+	TransitionLayer.change_scene("res://scenes/Credits.tscn")
 
 
 func _on_cutscene_body_entered(body: Node2D) -> void:

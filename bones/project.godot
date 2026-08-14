@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 TransitionLayer="*uid://c0l32alfa6q20"
 GameManager="*uid://b7k33df8nwnb4"
+MusicController="*uid://d2htrbyw3ew6j"
 
 [display]
 

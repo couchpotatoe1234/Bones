@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d2htrbyw3ew6j"]
+
+[ext_resource type="AudioStream" uid="uid://dj7265ocg6tth" path="res://assets/music/Bones_Music.mp3" id="1_86cwe"]
+
+[node name="Music Controller" type="Node2D" unique_id=193343211]
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1056858138]
+stream = ExtResource("1_86cwe")
+volume_db = -2.5
+parameters/looping = true

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b6376sry0gr88"]
+
+[ext_resource type="Texture2D" uid="uid://biw5g5ykf6nxj" path="res://assets/sprites/Title.png" id="1_hi4w3"]
+
+[node name="Node2D" type="Node2D" unique_id=69476807]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1592639895]
+position = Vector2(576, 324)
+scale = Vector2(4, 4)
+texture = ExtResource("1_hi4w3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=847093076]
+offset_left = 312.0
+offset_top = 122.0
+offset_right = 752.0
+offset_bottom = 278.0
+color = Color(0.23921569, 0.19215687, 0.1254902, 1)
