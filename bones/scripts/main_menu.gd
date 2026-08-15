@@ -2,6 +2,7 @@ extends Control
 
 
 func _on_start_button_pressed() -> void:
+	MusicController.get_node("Music").play()
 	MusicController.get_node("Button").play()
 	TransitionLayer.change_scene(GameManager.current_level)
 

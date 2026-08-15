@@ -1073,7 +1073,6 @@ size = Vector2(32, 32)
 [node name="Node2D" type="Node2D" unique_id=1627191595]
 
 [node name="Parallax_Deep" type="Parallax2D" parent="." unique_id=1624628803]
-visible = false
 scroll_scale = Vector2(0.2, 0.2)
 repeat_size = Vector2(1152, 648)
 repeat_times = 3
@@ -1082,7 +1081,6 @@ repeat_times = 3
 texture = ExtResource("1_vpobs")
 
 [node name="Parallax_front" type="Parallax2D" parent="." unique_id=626381940]
-visible = false
 scroll_scale = Vector2(0.75, 0.75)
 repeat_size = Vector2(1152, 648)
 repeat_times = 3

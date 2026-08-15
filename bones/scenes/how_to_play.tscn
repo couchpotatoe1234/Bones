@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://k7gjus6nukmd"]
 
-[ext_resource type="Script" uid="uid://bod4w3x5pwva5" path="res://scripts/how_to_play.gd" id="1_3cyrb"]
 [ext_resource type="PackedScene" uid="uid://b18jqpvjqaq08" path="res://scenes/player.tscn" id="1_88ieg"]
 [ext_resource type="Texture2D" uid="uid://vcqsbunq326p" path="res://assets/sprites/Deep_Cave.png" id="1_oityv"]
 [ext_resource type="PackedScene" uid="uid://bv0af6sp0xba0" path="res://scenes/pause_menu.tscn" id="2_30apa"]
@@ -77,7 +76,6 @@ font_color = Color(0.040525824, 0.029222844, 0.011147018, 1)
 size = Vector2(244, 113)
 
 [node name="How To Play" type="Node2D" unique_id=1317304715]
-script = ExtResource("1_3cyrb")
 
 [node name="Parallax_Deep" type="Parallax2D" parent="." unique_id=2139261105]
 z_index = -20
