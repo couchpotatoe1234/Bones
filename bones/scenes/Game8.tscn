@@ -647,7 +647,7 @@ offset_left = -1390.0
 offset_top = 1069.0
 offset_right = -1362.0
 offset_bottom = 1080.0
-text = "press ⬆"
+text = "press up arrow"
 label_settings = SubResource("LabelSettings_i8t1w")
 
 [node name="Exit" type="Area2D" parent="." unique_id=1454558445]
