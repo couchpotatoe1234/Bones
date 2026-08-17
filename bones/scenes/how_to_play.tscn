@@ -69,7 +69,7 @@ a = Vector2(0, 52)
 b = Vector2(0, -9)
 
 [sub_resource type="LabelSettings" id="LabelSettings_esfgi"]
-font_size = 20
+font_size = 17
 font_color = Color(0.040525824, 0.029222844, 0.011147018, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nxcge"]
@@ -197,10 +197,10 @@ script = ExtResource("10_dhu30")
 
 [node name="Label" type="Label" parent="Basic_Movement" unique_id=424366555]
 visible = false
-offset_left = -256.0
-offset_top = -72.0
-offset_right = 87.0
-offset_bottom = -37.0
+offset_left = -281.0
+offset_top = -74.0
+offset_right = 86.0
+offset_bottom = -39.0
 text = "Use left/right arrow keys to move left & right"
 label_settings = SubResource("LabelSettings_esfgi")
 

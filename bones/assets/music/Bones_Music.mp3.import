@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Bones_Music.mp3-d5151800ea73c9dcb36ddf66e9c38
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
